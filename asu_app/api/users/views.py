@@ -53,28 +53,26 @@ class RegisterUser(APIView):
 
 
 class LoginView(APIView):
-    permission_classes = [AllowAny]  # Доступно всем
+    permission_classes = [AllowAny]
 
     def post(self, request, format='json'):
-        serializer = UserDetailSerializer(data=request.data)
-        # Аутентификация по логину и паролю
-        user = authenticate(
-            username=serializer.initial_data.get("username"),
-            password=serializer.initial_data.get("password")
-        )
+        username = request.data.get("username")  # или email, в зависимости от формы
+        password = request.data.get("password")
+
+        # Пытаемся найти пользователя по username
+        user = authenticate(username=username, password=password)
 
         if not user:
-            return Response({'error': 'Invalid Credentials'}, status=status.HTTP_404_NOT_FOUND)
+            return Response({'error': 'Invalid Credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
-        # Если пользователь найден — получаем/создаём токен
-        serializer = UserDetailSerializer(user)
         token, _ = Token.objects.get_or_create(user=user)
+        serializer = UserDetailSerializer(user)
 
-        # Возвращаем токен + данные пользователя
-        json = {'token': token.key}
-        json.update(serializer.data)
-
-        return Response(json, status=status.HTTP_200_OK)
+        return Response({
+            'token': token.key,
+            **serializer.data
+        },
+        status=status.HTTP_200_OK)
 
 
 
