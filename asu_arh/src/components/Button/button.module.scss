@@ -1,0 +1,46 @@
+@use "../../styles/vars.scss" as vars;
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  transition: 0.2s all;
+  font-size: medium;
+  cursor: pointer;
+
+  &:hover {
+    scale: 1.1;
+  }
+
+  &:active {
+    scale: 0.9;
+  }
+}
+
+.big {
+  width: 200px;
+  height: 40px;
+}
+
+.medium {
+  width: 150px;
+  height: 30px;
+  font-size: 10pt;
+}
+
+.small {
+  width: 100px;
+  height: 30px;
+  font-size: 7pt;
+}
+
+.rounded {
+  border-radius: vars.$border-radius;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+}

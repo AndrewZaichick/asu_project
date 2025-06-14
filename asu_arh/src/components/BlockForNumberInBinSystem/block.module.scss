@@ -1,0 +1,82 @@
+@use "../../styles/vars.scss" as vars;
+
+.block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  width: 500px;
+  gap: 10px;
+  overflow-x: auto;
+  border-radius: vars.$border_radius;
+  background-color: vars.$bg_color;
+
+  @media (max-width: 560px) {
+    width: 300px;
+  }
+
+  @media (max-width: 370px) {
+    width: 200px;
+  }
+
+  .title_digits {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 11px;
+    color: white;
+    font-size: large;
+  }
+
+  .outer_container_for_numbers {
+    display: flex;
+    overflow-x: auto;
+    max-width: 350px;
+
+    .numbers_container {
+      display: flex;
+      flex-direction: row;
+      height: 70px;
+      justify-content: center;
+      align-items: center;
+      font-size: x-large;
+
+      .digit {
+        display: flex;
+        justify-content: center;
+        font-size: medium;
+        color: black;
+        border-right: 1px solid black;
+        border-bottom: 1px solid black;
+        width: 20px;
+        background-color: white;
+      }
+
+      .number {
+        display: flex;
+        justify-content: center;
+        width: 20px;
+        background-color: white;
+        align-items: center;
+        border-right: 1px solid black;
+      }
+
+      .sing {
+        border-right: 3px solid red;
+      }
+
+      .selected {
+        background-color: yellow;
+      }
+
+      .isbigger {
+        background-color: limegreen;
+      }
+
+      .islower {
+        background-color: red;
+      }
+    }
+  }
+}

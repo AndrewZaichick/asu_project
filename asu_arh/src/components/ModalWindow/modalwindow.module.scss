@@ -1,0 +1,133 @@
+@use "../../styles/vars.scss" as vars;
+
+.back {
+  position: fixed;
+  top: vars.$header_height;
+  bottom: vars.$footer_height;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  @media (max-width: 500px) and (max-height: 824px) {
+    position: relative;
+    top: 20px;
+    left: 0;
+  }
+
+  .container {
+    display: grid;
+    align-items: center;
+    color: vars.$text_color;
+    border-radius: vars.$border-radius;
+    background-color: vars.$bg_color;
+    font-size: vars.$font_size;
+    font-family: vars.$font_default;
+    width: 500px;
+    min-height: 300px;
+    max-height: 600px;
+    height: auto;
+    padding: 25px;
+    gap: 15px;
+
+    @media (max-width: 375px) {
+      height: 450px;
+      padding: 15px;
+      gap: 5px;
+      margin-top: 100px;
+    }
+
+    @media (max-width: 600px) {
+      width: 300px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container_for_input {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 40% 50%;
+      align-items: center;
+
+      @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        grid-column-start: 1;
+      }
+
+      input[type="text"] {
+        grid-column-start: 2;
+      }
+
+      span {
+        color: red;
+        font-size: medium;
+        grid-column-start: 2;
+      }
+    }
+
+    .container_for_select {
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: 40% 50%;
+      align-items: center;
+
+      @media (max-width: 600px) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        grid-column-start: 1;
+      }
+
+      select {
+        grid-column-start: 2;
+      }
+
+      span {
+        color: red;
+        font-size: medium;
+        grid-column-start: 2;
+      }
+    }
+
+    .send_bttn_container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+
+      button {
+        width: 130px;
+        height: 35px;
+        font-size: 16px;
+        border-radius: 5px;
+        transition: 0.3s all;
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.1;
+        }
+
+        &:active {
+          scale: 1;
+        }
+      }
+    }
+
+    .error {
+      color: red;
+      text-shadow: 1px 1px rgba($color: #000000, $alpha: 1);
+      height: 30px;
+    }
+  }
+}

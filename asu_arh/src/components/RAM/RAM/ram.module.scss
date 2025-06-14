@@ -1,0 +1,12 @@
+.container {
+  border: 2px solid black;
+  border-collapse: collapse;
+  width: inherit;
+  height: inherit;
+
+  .cell {
+    text-align: center;
+    border: 1px solid black;
+    font-size: large;
+  }
+}

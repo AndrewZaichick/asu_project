@@ -1,0 +1,58 @@
+@use "../../styles/vars.scss" as vars;
+
+.outer_container {
+  display: flex;
+  position: fixed;
+  top: vars.$header_height;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+
+  .inner_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+    width: 500px;
+    height: 350px;
+    padding: 25px;
+    gap: 5px;
+    color: vars.$text_color;
+    font-family: vars.$font_default;
+    background-color: vars.$bg_color;
+    border-radius: vars.$border_radius;
+
+    @media (max-width: 600px) {
+      width: 300px;
+    }
+
+    .table {
+      max-width: 450px;
+      max-height: 200px;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        scrollbar-width: thin;
+      }
+
+      // &::-webkit-scrollbar-track {
+      //   width: 0px;
+      //   background-color: green;
+      // }
+
+      &::-webkit-scrollbar-thumb {
+        width: 2px;
+        border-radius: 20px;
+        background-color: orange;
+      }
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

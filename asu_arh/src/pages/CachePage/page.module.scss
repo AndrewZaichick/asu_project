@@ -1,0 +1,137 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  gap: 50px;
+
+  @media (max-width: 780px) {
+    gap: 150px;
+  }
+
+  @media (max-width: 480px) {
+    gap: 175px;
+  }
+  @media (max-width: 390px) {
+    gap: 200px;
+  }
+
+  .tables_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+
+    @media (max-width: 1080px) {
+      gap: 25px;
+    }
+
+    @media (max-width: 480px) {
+      gap: 30px;
+    }
+
+    @media (max-width: 390px) {
+      gap: 50px;
+    }
+
+    @media (max-width: 340px) {
+      gap: 25px;
+    }
+
+    .cache_container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 50px;
+
+      @media (max-width: 420px) {
+        gap: 25px;
+      }
+    }
+
+    .arrow_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      height: 300px;
+
+      @media (min-width: 1080px) {
+        height: 350px;
+      }
+
+      .arrow {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s all;
+
+        .icon {
+          width: 50px;
+          height: 50px;
+
+          @media (max-width: 540px) {
+            width: 30px;
+            height: 30px;
+          }
+          @media (max-width: 300px) {
+            width: 25px;
+            height: 25px;
+          }
+        }
+      }
+    }
+  }
+
+  .controls_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    padding: 10px;
+    gap: 10px;
+    width: 500px;
+    height: 250px;
+    align-items: center;
+    border: 1px solid black;
+
+    @media (max-width: 600px) {
+      width: 400px;
+      height: 280px;
+    }
+
+    @media (max-width: 480px) {
+      justify-content: start;
+      width: 300px;
+      height: 260px;
+    }
+
+    @media (max-width: 352px) {
+      justify-content: start;
+      width: 200px;
+      height: 300px;
+    }
+
+    .select_container,
+    .input_container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      span {
+        font-size: large;
+      }
+    }
+
+    .buttons_container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      height: 30px;
+      gap: 10px;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../styles/vars.scss" as vars;
+
+.outer_container {
+  display: flex;
+  position: fixed;
+  top: vars.$header_height;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+
+  .inner_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: auto;
+    width: 500px;
+    height: 350px;
+    padding: 25px;
+    gap: 5px;
+    color: vars.$text_color;
+    font-family: vars.$font_default;
+    background-color: vars.$bg_color;
+    border-radius: vars.$border_radius;
+
+    @media (max-width: 600px) {
+      width: 300px;
+    }
+
+    .text {
+      display: flex;
+      word-wrap: break-word;
+      text-align: justify;
+      padding: 10px;
+      height: 70%;
+      overflow-y: auto;
+      font-size: larger;
+      outline: none;
+      resize: none;
+    }
+
+    .button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

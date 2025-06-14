@@ -1,0 +1,29 @@
+@use "../../styles/vars.scss" as vars;
+
+$height: 30px;
+
+.input {
+  font-size: 20px;
+  font-family: "Roboto";
+  border-radius: 5px;
+  width: 200px;
+  height: $height;
+  box-sizing: border-box;
+  letter-spacing: 1px;
+  padding: 0px 7px;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+}
+
+.without_border {
+  border: none;
+}
+
+.with_border {
+  border: 1px solid black;
+}

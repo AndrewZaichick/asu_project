@@ -1,0 +1,6 @@
+@use "../../styles/vars.scss" as vars;
+
+label {
+  font-size: vars.$font_size;
+  color: vars.$text_color;
+}

@@ -1,0 +1,11 @@
+.cache_table {
+  width: inherit;
+  height: inherit;
+  border: 2px solid black;
+  border-collapse: collapse;
+
+  .header {
+    border: 2px solid black;
+    border-bottom: none;
+  }
+}

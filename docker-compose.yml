@@ -1,0 +1,112 @@
+version: '3.4'
+
+services:
+  nginx:
+    image: "asu-ui"
+    container_name: asu-ui
+    build:
+      context: ./asu_ui
+      dockerfile: Dockerfile
+      cache_from:
+        - "asu-ui:latest"
+    restart: always
+    volumes:
+      - ./asu_ui:/usr/share/nginx/html
+      - ./asu_ui/config/default.conf:/etc/nginx/conf.d/default.conf
+      - ./asu_ui/config/nginx.conf:/etc/nginx/nginx.conf
+    ports:
+      - "3080:3080"
+      - "3081:3081"
+    networks:
+      - asu-network
+
+  asu-app:
+    image: "asu-app"
+    container_name: asu-app
+    command: sh -c "/code/run.sh"
+    build:
+      context: ./asu_app
+      dockerfile: Dockerfile
+      cache_from:
+        - "asu-app:latest"
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./asu_app:/code
+    depends_on:
+      - asu-db
+    networks:
+      - asu-network
+    stdin_open: true
+    tty: true
+
+  asu-arh:
+    image: "asu-arh"
+    container_name: asu-arh
+    build:
+      context: ./asu_arh
+      dockerfile: Dockerfile
+      cache_from:
+        - "asu-arh:latest"
+    restart: always
+    networks:
+      - asu-network
+    ports:
+      - "3082:8080"
+
+  asu-db:
+    container_name: asu-db
+    image: postgres:12.5-alpine
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    ports:
+      - "5432:5432"  # <--- Для проброса порта на хост машину и работу с бд
+    networks:
+      - asu-network
+
+  gns-api-gateway:
+    image: "gns-api-gateway"
+    container_name: gns-api-gateway
+    build:
+      context: ./gns-api-gateway
+      dockerfile: Dockerfile
+      cache_from:
+        - "gns-api-gateway:latest"
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./gns-api-gateway/gns_api_gateway:/code/gns_api_gateway
+      - ./gns-api-gateway/poetry.lock:/code/poetry.lock
+      - ./gns-api-gateway/pyproject.toml:/code/pyproject.toml
+    networks:
+      - asu-network
+    stdin_open: true
+    tty: true
+
+  gns3-server:
+    image: "gns3-server"
+    container_name: gns3-server
+    build:
+      context: ./gns3
+      dockerfile: Dockerfile
+      cache_from:
+        - "gns3-server:latest"
+    restart: always
+    privileged: true
+    volumes:
+      - ./gns3/gns3_server.conf:/root/.config/GNS3/gns3_server.conf
+      - ./gns3/GNS3:/root/GNS3
+    networks:
+      - asu-network
+
+volumes:
+  postgres_data:
+
+networks:
+  asu-network:
+    external: true

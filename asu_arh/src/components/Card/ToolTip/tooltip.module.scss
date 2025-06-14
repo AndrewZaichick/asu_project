@@ -1,0 +1,25 @@
+@use "../../../styles//vars.scss" as vars;
+
+.container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  width: inherit;
+  height: inherit;
+  padding: inherit;
+  font-size: x-large;
+  background-color: vars.$bg_color;
+  color: vars.$text_color;
+  transition: 0.3s all;
+  opacity: 0;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:not(:hover) {
+    opacity: 0;
+  }
+}

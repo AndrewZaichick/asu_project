@@ -1,0 +1,10 @@
+.container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f7f6de;
+  background-color: #00528e;
+} /*# sourceMappingURL=footer.module.css.map */

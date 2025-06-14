@@ -1,0 +1,20 @@
+@use "../../styles/vars.scss" as vars;
+
+.container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: vars.$footer_height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: vars.$text_color;
+  background-color: vars.$bg_color;
+  font-family: vars.$font_default;
+
+  @media (max-width: 1100px) {
+    position: relative;
+    flex: 0 0 auto;
+  }
+}

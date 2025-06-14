@@ -1,0 +1,18 @@
+@use "../../styles//vars.scss" as vars;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 150px;
+  height: 150px;
+  padding: 35px;
+  text-align: center;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}

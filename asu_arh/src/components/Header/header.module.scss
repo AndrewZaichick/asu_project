@@ -1,0 +1,36 @@
+@use "../../styles/vars.scss" as vars;
+
+.container {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+  background-color: vars.$bg_color;
+  color: vars.$text_color;
+  text-align: center;
+  font-family: vars.$font_default;
+  min-height: vars.$header_height;
+
+  @media (max-width: 767px) {
+    padding: 5px;
+    grid-template-columns: 100%;
+    grid-template-rows: 50% 50%;
+  }
+
+  @media (max-width: 500px) {
+    font-size: small;
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+    aspect-ratio: 16/9;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

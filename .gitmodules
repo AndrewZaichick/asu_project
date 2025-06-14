@@ -1,0 +1,15 @@
+[submodule "asu_app"]
+	path = asu_app
+	url = ../asu_app.git
+[submodule "asu_ui"]
+	path = asu_ui
+	url = ../asu_ui.git
+[submodule "gns-api-gateway"]
+	path = gns-api-gateway
+	url = ../gns-api-gateway.git
+[submodule "gns3"]
+	path = gns3
+	url = ../gns3.git
+[submodule "asu_arh"]
+	path = asu_arh
+	url = ../asu-arh.git

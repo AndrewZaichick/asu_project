@@ -1,0 +1,60 @@
+.cell {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0;
+  font-size: large;
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: 0.5s all;
+
+  @media (max-width: 420px) {
+    font-size: medium;
+  }
+
+  @media (max-width: 390px) {
+    font-size: small;
+  }
+  @media (max-width: 350px) {
+    font-size: x-small;
+  }
+}
+
+.input {
+  outline: none;
+  border: none;
+  width: 35px;
+  height: 20px;
+  margin: 0;
+  font-size: 13pt;
+  text-align: center;
+
+  @media (max-width: 432px) {
+    width: 25px;
+    font-size: medium;
+  }
+
+  @media (max-width: 390px) {
+    width: 20px;
+    font-size: small;
+  }
+
+  @media (max-width: 350px) {
+    width: 15px;
+    font-size: x-small;
+  }
+}
+
+.checking {
+  background-color: rgba(67, 149, 217, 0.4);
+}
+
+.founded_or_added {
+  background-color: rgba(0, 255, 0, 0.7);
+}
+
+.checking_for_already_used_values {
+  background-color: rgba(255, 0, 0, 0.7);
+}
