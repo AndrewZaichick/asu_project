@@ -148,7 +148,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '.', 'public', 'media')
 MEDIA_URL = '/media/'
 
 # Пользовательская модель пользователя
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'api.users.User'
 
 # Тип ID по умолчанию для всех моделей
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
