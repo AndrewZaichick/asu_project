@@ -410,7 +410,7 @@
                                 while (1) switch (n.prev = n.next) {
                                     case 0:
                                         e.preventDefault(), L.a.post(t.$getConst("LOGIN_URL")(), t.form).then((function (e) {
-                                            localStorage.setItem("token", e.data.token), localStorage.setItem("username", e.data.email), localStorage.setItem("role", e.data.role), localStorage.setItem("is_superuser", e.data.is_superuser), t.$root.username = e.data.email, t.$emit.username = e.data.email, t.$root.is_superuser = e.data.is_superuser, t.$emit.is_superuser = e.data.is_superuser, t.$root.role = e.data.role, t.$emit.role = e.data.role, window.location.pathname = "/subjects"
+                                            localStorage.setItem("token", e.data.token), localStorage.setItem("username", e.data.username), localStorage.setItem("role", e.data.role), localStorage.setItem("is_superuser", e.data.is_superuser), t.$root.username = e.data.username, t.$emit.username = e.data.email, t.$root.is_superuser = e.data.is_superuser, t.$emit.is_superuser = e.data.is_superuser, t.$root.role = e.data.role, t.$emit.role = e.data.role, window.location.pathname = "/subjects"
                                         }), (function (e) {
                                             return s["default"].$toast.error("Логин или пароль введены неверно")
                                         }));
