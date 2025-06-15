@@ -2070,7 +2070,7 @@
                 REGISTER_URL: function () {
                     return "register/"
                 }, LOGIN_URL: function () {
-                    return "token-auth/"
+                    return "api-token-auth/"
                 }, GROUPS_URL: function () {
                     return "groups/"
                 }, SUBJECT_URL: function () {
