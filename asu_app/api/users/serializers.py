@@ -38,6 +38,8 @@ class UserDetailSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         min_length=8, required=True, write_only=True  # Пароль скрыт при сериализации
     )
+    is_superuser = serializers.BooleanField(read_only=True)  #  Явно указать
+    role = serializers.IntegerField(read_only=True)          #  Явно указать
 
     def create(self, validated_data):
         # Создание пользователя через встроенный create_user
