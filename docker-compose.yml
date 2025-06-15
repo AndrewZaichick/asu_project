@@ -21,25 +21,28 @@ services:
       - asu-network
 
   asu-app:
-    image: "asu-app"
-    container_name: asu-app
-    command: sh -c "/code/run.sh"
-    build:
-      context: ./asu_app
-      dockerfile: Dockerfile
-      cache_from:
-        - "asu-app:latest"
-    restart: always
-    env_file:
-      - .env
-    volumes:
-      - ./asu_app:/code
-    depends_on:
-      - asu-db
-    networks:
-      - asu-network
-    stdin_open: true
-    tty: true
+  image: "asu-app"
+  container_name: asu-app
+  command: sh -c "/code/run.sh"
+  build:
+    context: ./asu_app
+    dockerfile: Dockerfile
+    cache_from:
+      - "asu-app:latest"
+  restart: always
+  env_file:
+    - .env
+  volumes:
+    - ./asu_app:/code
+  depends_on:
+    - asu-db
+  networks:
+    - asu-network
+  stdin_open: true
+  tty: true
+  ports:
+    - "8000:8000"  # ← добавлено: проброс порта
+
 
   asu-arh:
     image: "asu-arh"
